@@ -1,0 +1,32 @@
+#include <bits/stdc++.h>
+#define int long long
+#define pb push_back
+#define write(a,n) for(int i = 0;i < n;i++){cin >> a[i];}
+#define copy(n,a,b) for(int i = 0;i < n;i++){b[i] = a[i];}
+using namespace std;
+
+void solve(){
+    int n,m,k;
+    stack<char>st;
+    string s,f;
+    cin >> s;
+    for(char i : s){
+        if (i == 'B' && !st.empty()) st.pop();
+        else if (i != 'B') st.push(i);
+    }
+    //cout << st.size() << "\n";
+    while(!st.empty()){
+        f+=st.top();
+        st.pop();
+    }
+    reverse(f.begin(),f.end());
+    cout << f;
+}
+
+signed main(){
+    int t = 1;
+    while(t--){
+        solve();
+        cout << "\n";
+    }
+}
